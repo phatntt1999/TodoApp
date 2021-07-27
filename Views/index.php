@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="../Resources/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../TodoApp/Resources/css/app.css">
 
     <title>Todo List App - Pure Coding</title>
 </head>
@@ -21,18 +21,19 @@
         </div>
         <div class="content">
             <ul id="tasks">
-                <li>
-                    <span class="text">This is the task one</span>
-                    <i id="removeBtn" class="icon fa fa-trash" data-id=""></i>
-                </li>
-                <li>
-                    <span class="text">This is the task two</span>
-                    <i id="removeBtn" class="icon fa fa-trash" data-id=""></i>
-                </li>
-                <li>
-                    <span class="text">This is the task three</span>
-                    <i id="removeBtn" class="icon fa fa-trash" data-id=""></i>
-                </li>
+                <?php
+                if (!empty($tasks)) {
+                    foreach ($tasks as $task) { ?>
+                        <li>
+                            <span class="text"><?= $task->task; ?></span>
+                            <i id="removeBtn" class="icon fa fa-trash" data-id=""></i>
+                        </li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li>
+                        <span class="text">There no task now</span>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
